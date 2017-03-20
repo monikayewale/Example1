@@ -1,0 +1,25 @@
+
+
+    public void withHeaders(Map<String, String> dataMap) {
+        stringBuffer.append(dataMap.entrySet().stream()
+                .filter(map->map.getValue()!=null)
+                .map($ -> $.getKey() + EQUAL_SEPARATOR + $.getValue()
+                ).collect(Collectors.joining(DELIMITER_COMMA))
+        );
+    }
+
+
+
+    public static void main(String[] args){
+        Map map1= new HashMap<String, String>();
+        map1.put("1","1111");
+        Map map2= new HashMap<String, Object>();
+        map2.put("999",new Object());
+
+        mapExample(map1);
+        mapExample(map2);
+    }
+
+    static void mapExample(Map<String, ?> map){
+        System.out.println(map);
+    }
